@@ -19,11 +19,33 @@
         <button>View Details</button>
       </template>
     </CardC>
+    <NameList>
+      <template v-slot:default="slotProps">
+        {{ slotProps.firstName }} {{ slotProps.lastName }}
+      </template>
+    </NameList>
+    <NameList>
+      <template v-slot:default="slotProps">
+        {{ slotProps.lastName }} , {{ slotProps.firstName }}
+      </template>
+    </NameList>
+    <NameList>
+      <template v-slot:default="slotProps">
+        {{ slotProps.firstName }}
+      </template>
+    </NameList>
+    <h4>App Component Text</h4>
+    <!-- <ChildStyles /> -->
+    <ChildStyles>
+      <h4>Child Styles Components Text</h4>
+    </ChildStyles>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
 
 <script>
+import ChildStyles from "./components/ChildStyles.vue";
+import NameList from "./components/NameList.vue";
 import CardC from "./components/CardC.vue";
 import InputS from "./components/InputS.vue";
 // import HelloWorld from './components/HelloWorld.vue'
@@ -34,6 +56,8 @@ export default {
     GreetS,
     InputS,
     CardC,
+    NameList,
+    ChildStyles,
   },
   data() {
     return {
@@ -44,7 +68,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -52,5 +76,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h4 {
+  color: orange;
 }
 </style>
