@@ -39,11 +39,20 @@
     <ChildStyles>
       <h4>Child Styles Components Text</h4>
     </ChildStyles>
+    <button @click="activeTab = 'TabA'">Tab A</button>
+    <button @click="activeTab = 'TabB'">Tab B</button>
+    <button @click="activeTab = 'TabC'">Tab C</button>
+    <TabA v-if="activeTab === 'TabA'" />
+    <TabB v-if="activeTab === 'TabB'" />
+    <TabC v-if="activeTab === 'TabC'" />
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
 
 <script>
+import TabA from "./components/TabA.vue";
+import TabB from "./components/TabB.vue";
+import TabC from "./components/TabC.vue";
 import ChildStyles from "./components/ChildStyles.vue";
 import NameList from "./components/NameList.vue";
 import CardC from "./components/CardC.vue";
@@ -58,10 +67,13 @@ export default {
     CardC,
     NameList,
     ChildStyles,
+    TabA,
+    TabB,
+    TabC,
   },
   data() {
     return {
-      name: "",
+      activeTab: "TabA",
     };
   },
   methods: {},
